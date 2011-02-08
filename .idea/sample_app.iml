@@ -12,6 +12,12 @@
   <component name="GemRequirementsHolder" version="3">
     <requirement>
       <requirement>
+        <dependency name="annotate-models" version="1.0.4" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="rails" version="3.0.3" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -95,6 +101,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-expectations (v2.4.0, /Users/philipmannheimer/.rvm/gems/ruby-1.9.2-p136@rails3tutorial/gems/rspec-expectations-2.4.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-core (v2.4.0, /Users/philipmannheimer/.rvm/gems/ruby-1.9.2-p136@rails3tutorial/gems/rspec-core-2.4.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] spork (v0.8.4, /Users/philipmannheimer/.rvm/gems/ruby-1.9.2-p136@rails3tutorial/gems/spork-0.8.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] annotate-models (v1.0.4, /Users/philipmannheimer/.rvm/gems/ruby-1.9.2-p136@rails3tutorial/gems/annotate-models-1.0.4)" level="application" />
   </component>
 </module>
 
