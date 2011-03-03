@@ -313,23 +313,41 @@ describe UsersController do
 
     describe "as an admin user" do
       before(:each) do
-        admin = Factory(:user, :email => "admin@example.com", :admin => true)
-        test_sign_in(admin)
-      end
+        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        test_sign_in(@admin)
+        first  = Factory(:user, :name => "bill", :email => "another@example.se")
+        second = Factory(:user, :name => "Bob", :email => "another@example.com")
+        third  = Factory(:user, :name => "Ben", :email => "another@example.net")
 
-      it "should destroy the user" do
-        lambda do
+        @users = [first, second, third]
+        30.times do
+          @users << Factory(:user, :email => Factory.next(:email))
+        end end
+
+        it "should destroy the user" do
+          lambda do
+            delete :destroy, :id => @user
+          end.should change(User, :count).by(-1)
+        end
+
+        it "should redirect to the users page" do
           delete :destroy, :id => @user
-        end.should change(User, :count).by(-1)
-      end
+          response.should redirect_to(users_path)
+        end
 
-      it "should redirect to the users page" do
-        delete :destroy, :id => @user
-        response.should redirect_to(users_path)
+        it "should have the delete 'links'" do
+          get :index
+          response.should have_selector("a", :content => "delete")
+        end
+
+        it "should not be able to delete itself" do
+          lambda do
+              delete :destroy, :id => @admin
+          end.should_not change(User, :count)
+        end
+
       end
 
     end
 
   end
-
-end
