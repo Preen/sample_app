@@ -1,6 +1,7 @@
 <%= form_for @micropost do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
-    <div class="field">
+    <div style="height: 17px; padding-left: 20px;"><img src="/images/arrow_up.png" alt="" /></div>
+    <div class="field addContent">
       <%= f.text_area :content %>
     </div>
     <div class="actions">

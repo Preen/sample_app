@@ -3,7 +3,7 @@
 }
 
 body {
-    background: #cff;
+    background: #333;
 }
 
 header {
@@ -12,14 +12,29 @@ header {
 
 header img {
     padding: 1em;
-    background: #fff;
 }
 
 section {
     margin-top: 1em;
     font-size: 120%;
     padding: 20px;
-    background: #fff;
+    -moz-box-shadow: 0 0 5px #000;
+    box-shadow: 0 0 5px #000;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right bottom,
+        color-stop(0.47, #DBDBDB),
+        color-stop(0.54, #D4D4D4),
+        color-stop(0.94, #A8A8A8)
+    );
+    background-image: -moz-linear-gradient(
+        left center,
+        #DBDBDB 47%,
+        #D4D4D4 54%,
+        #A8A8A8 94%
+    );
+
 }
 
 section h1 {
@@ -48,7 +63,6 @@ nav {
 }
 
 nav {
-    background-color: white;
     padding: 0 0.7em;
     white-space: nowrap;
 }
@@ -83,15 +97,16 @@ a.signup_button {
     margin-right: auto;
     display: block;
     text-align: center;
-    width: 190px;
+    width: 322px;
+    height: 82px;
     color: #fff;
-    background: #006400;
+    background: url('/images/signup_button.png') no-repeat;
     font-size: 150%;
     font-weight: bold;
-    padding: 20px;
+    text-indent: -9999px;
 }
 
-.round {
+.round, div.field, .success, .flash, .error, form {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -125,7 +140,7 @@ td.sidebar {
     width: 30%;
     padding: 1em;
     vertical-align: top;
-    background: #ffc;
+    background: #999;
 }
 
 .profile img.gravatar {
@@ -136,6 +151,30 @@ td.sidebar {
 div.field, div.actions {
     margin-bottom: 10px;
 }
+
+textarea {
+    background: #fff;
+    border: 0;
+}
+
+div.field, form {
+    padding:10px;
+
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.new_micropost div.field, form {
+    background: #fff; 
+}
+
+#new_micropost {
+    background: none;
+    padding: 0;
+}
+
 
 .field_with_errors {
     margin-top: 10px;
@@ -186,7 +225,8 @@ ul.users {
 }
 
 h1.micropost {
-    margin-bottom: 0.3em;
+    margin-bottom: 0.5em;
+    color: #777;
 }
 
 table.micropost {
@@ -198,11 +238,10 @@ table.microposts tr {
 }
 
 table.microposts tr td.gravatar {
-    border-top: 1px solid #ccc;
+    
 }
 
 table.microposts tr td.micropost {
-    border-top: 1px solid #ccc;
     vertical-align: top;
     padding-top: 10px;
 }
@@ -238,3 +277,18 @@ form.new_microposts textarea {
     margin-bottom: 0;
 }
 
+tbody tr:nth-child(2n) td, tbody tr.even td {
+    background: none repeat scroll 0 0 #EEE;
+}
+
+tbody tr td:first-child {
+    -moz-border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.microposts tbody tr td:last-child {
+    -moz-border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
+}
